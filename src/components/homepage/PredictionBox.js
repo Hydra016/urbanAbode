@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPricePrediction } from "@/pages/features/propertySlice";
+import { fetchPricePrediction } from "@/features/propertySlice";
 
 const PredictionBox = () => {
   const [mobile, setMobile] = useState(false);
