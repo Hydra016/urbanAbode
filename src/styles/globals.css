@@ -40,7 +40,7 @@ body {
   height: 100vh;
   scroll-snap-align: start;
   scroll-behavior: smooth;
-} 
+}
 
 .offers-page {
   background-color: #F3F3FA;
@@ -64,7 +64,7 @@ body {
     font-size: 16px;
     display: none;
   }
-  
+
   .contact-btn {
     display: none;
   }
@@ -108,48 +108,58 @@ body {
     0% {
       transform: translateX(0px);
     }
+
     100% {
       transform: translateX(-900px);
     }
   }
+
   @-webkit-keyframes slideOut {
     0% {
       transform: translateX(0px);
     }
+
     100% {
       transform: translateX(-900px);
     }
   }
+
   @keyframes slideOut {
     0% {
       transform: translateX(0px);
     }
+
     100% {
       transform: translateX(-900px);
     }
   }
-  
+
 
   @-webkit-keyframes slideIn {
     0% {
       transform: translateX(-900px);
     }
+
     100% {
       transform: translateX(0);
     }
   }
+
   @-moz-keyframes slideIn {
     0% {
       transform: translateX(-900px);
     }
+
     100% {
       transform: translateX(0);
     }
   }
+
   @keyframes slideIn {
     0% {
       transform: translateX(-900px);
     }
+
     100% {
       transform: translateX(0);
     }
@@ -165,6 +175,7 @@ body {
     font-family: 'Merriweather';
     padding-bottom: 1rem;
   }
+
   .menu-links-container {
     margin-top: 5rem;
   }
@@ -209,7 +220,7 @@ body {
     flex-direction: column;
     justify-content: flex-start !important;
     align-items: flex-start !important;
-    
+
   }
 
   .prediction-input {
@@ -330,7 +341,7 @@ body {
 }
 
 .prediction-input_container--details {
-  width: 100%;  
+  width: 100%;
 }
 
 .prediction-input_container {
@@ -359,4 +370,3 @@ body {
   margin-top: 2rem;
   margin-left: 1rem;
 }
-

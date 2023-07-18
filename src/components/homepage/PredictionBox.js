@@ -9,12 +9,12 @@ const PredictionBox = () => {
   const [details, setDetails] = useState({
     bedrooms: "",
     floors: "",
-    sqft_lot : "",
+    sqft_lot: "",
   });
-  const { price, isLoading } = useSelector((state) => state.propertyPrediction );
+  const { price, isLoading } = useSelector((state) => state.propertyPrediction);
   const dispatch = useDispatch();
 
-  console.log(price)
+  console.log(price);
 
   const handleResize = () => {
     if (window.innerWidth < 800) {
@@ -86,11 +86,17 @@ const PredictionBox = () => {
           </div>
         </div>
         <div className="prediction-input_container--result">
-          <p className="prediction-result-text">{!isLoading ? '$' + price : <>loading...</>}</p>
+          <p className="prediction-result-text">
+            {!isLoading ? "$" + price : <>loading...</>}
+          </p>
         </div>
       </div>
       <div className="prediction-btn">
-        <button href="/" className="primary-btn" onClick={() => dispatch(fetchPricePrediction(details))}>
+        <button
+          href="/"
+          className="primary-btn"
+          onClick={() => dispatch(fetchPricePrediction(details))}
+        >
           Predict Price
         </button>
       </div>
