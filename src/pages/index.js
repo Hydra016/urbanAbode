@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Header from "@/components/homepage/Header";
 import Offers from "@/components/Offers";
-import { store } from "./store";
+import { store } from "../store";
 import { Provider } from "react-redux";
 
 export default function Home() {
