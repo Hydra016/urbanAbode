@@ -4,10 +4,6 @@ import axios from "axios";
 export const fetchPricePrediction = createAsyncThunk(
   "property/pricePrediction",
   async (details) => {
-    const { floors, bedrooms, sqft_lot } = details;
-
-    console.log(details);
-
     const response = await axios.post(
       `https://urban-abode-yfz1.vercel.app/api/property`,
       details
