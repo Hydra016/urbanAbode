@@ -9,7 +9,7 @@ export const fetchPricePrediction = createAsyncThunk(
     console.log(details);
 
     const response = await axios.post(
-      `http://localhost:3000/api/property`,
+      `https://urban-abode-yfz1.vercel.app/api/property`,
       details
     );
     return response;

@@ -220,7 +220,10 @@ body {
     flex-direction: column;
     justify-content: flex-start !important;
     align-items: flex-start !important;
+  }
 
+  .prediction-input_container--details {
+    width: 100% !important;
   }
 
   .prediction-input {
@@ -341,14 +344,14 @@ body {
 }
 
 .prediction-input_container--details {
-  width: 100%;
+  width: 50%;
 }
 
 .prediction-input_container {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .prediction-input {
@@ -360,13 +363,25 @@ body {
   padding: 0.5rem;
 }
 
-.prediction-result-text {
-  font-size: 50px;
-  font-weight: 900;
-  margin-right: 3rem;
-}
-
 .prediction-btn {
   margin-top: 2rem;
   margin-left: 1rem;
+  
+}
+
+.prediction-result-box {
+  flex: 1;
+}
+
+.predicted-price-heading {
+  font-size: 25px;
+  font-weight: 900;
+
+}
+
+.predicted-price {
+  display: block;
+  margin-top: 1rem;
+  font-size: 40px;
+  font-weight: 900;
 }

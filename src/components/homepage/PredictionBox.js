@@ -86,9 +86,7 @@ const PredictionBox = () => {
           </div>
         </div>
         <div className="prediction-input_container--result">
-          <p className="prediction-result-text">
-            {!isLoading ? "$" + price : <>loading...</>}
-          </p>
+            {!isLoading ? <div className="prediction-result-box"><span className="predicted-price-heading">The predicted price will be</span><span className="predicted-price">${price}</span></div> : <>loading...</>}
         </div>
       </div>
       <div className="prediction-btn">
