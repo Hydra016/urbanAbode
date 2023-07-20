@@ -38,7 +38,6 @@ features = tf.tensor(features);
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { floors, bedrooms, sqft_lot } = req.body;
-    // console.log(floors, bedrooms, sqft_lot)
     const prediction = knn(
       features,
       labels,
@@ -46,7 +45,6 @@ export default async function handler(req, res) {
       10
     );
 
-    // Send a response
     res.status(200).json({ success: true, prediction });
   } else {
     res.status(405).json({ success: false, message: "Method not allowed" });
