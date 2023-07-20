@@ -59,6 +59,10 @@ body {
     color: #141B2D;
   }
 
+  .inner-screen {
+    padding: 1.5rem 1rem;
+  }
+
   .navbar-link {
     text-decoration: none;
     font-size: 16px;
