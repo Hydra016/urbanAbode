@@ -13,9 +13,7 @@ const PredictionBox = () => {
   });
   const { price, isLoading } = useSelector((state) => state.propertyPrediction);
   const dispatch = useDispatch();
-
-  console.log(price);
-
+  
   const handleResize = () => {
     if (window.innerWidth < 800) {
       setMobile(true);
