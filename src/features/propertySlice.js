@@ -4,10 +4,7 @@ import axios from "axios";
 export const fetchPricePrediction = createAsyncThunk(
   "property/pricePrediction",
   async (details) => {
-    const response = await axios.post(
-      `/api/property`,
-      details
-    );
+    const response = await axios.post(`/api/property`, details);
     return response;
   }
 );

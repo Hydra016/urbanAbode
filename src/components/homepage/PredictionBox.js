@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPricePrediction } from "@/features/propertySlice";
+import { MoonLoader } from "react-spinners";
 
 const PredictionBox = () => {
   const [mobile, setMobile] = useState(false);
@@ -13,7 +13,13 @@ const PredictionBox = () => {
   });
   const { price, isLoading } = useSelector((state) => state.propertyPrediction);
   const dispatch = useDispatch();
-  
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+
   const handleResize = () => {
     if (window.innerWidth < 800) {
       setMobile(true);
@@ -84,13 +90,30 @@ const PredictionBox = () => {
           </div>
         </div>
         <div className="prediction-input_container--result">
-            {!isLoading ? <div className="prediction-result-box"><span className="predicted-price-heading">The predicted price will be</span><span className="predicted-price">${price}</span></div> : <>loading...</>}
+          {!isLoading ? (
+            <div className="prediction-result-box">
+              <span className="predicted-price-heading">
+                The predicted price will be
+              </span>
+              <span className="predicted-price">${price}</span>
+            </div>
+          ) : (
+            <div className="prediction-loader-container">
+            <MoonLoader
+              color='#1C3988'
+              loading={isLoading}
+              cssOverride={override}
+              size={50}
+              aria-label="Loading Spinner"
+            />
+            </div>
+          )}
         </div>
       </div>
-      <div className="prediction-btn">
+      <div className="prediction-btn-box">
         <button
           href="/"
-          className="primary-btn"
+          className="primary-btn prediction-btn"
           onClick={() => dispatch(fetchPricePrediction(details))}
         >
           Predict Price

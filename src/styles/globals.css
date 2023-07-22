@@ -24,6 +24,36 @@ body {
 
 /* pages */
 
+.secondary-btn {
+  padding: 13px 24px;
+  padding: 13px 24px;
+  background-color: transparent;
+  font-weight: 600;
+  color: #1C3988;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #1C3988;
+  cursor: pointer;
+}
+
+.primary-btn {
+  padding: 13px 24px;
+  background-color: #1C3988;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.text-primary {
+  font-size: 50px;
+  font-family: 'Merriweather';
+  font-weight: 600;
+}
+
+.text-secondary {
+  font-size: 20px;
+}
+
 .main-container {
   scroll-snap-type: y mandatory;
   height: 100vh;
@@ -247,6 +277,64 @@ body {
     width: 100%;
   }
 
+  .prediction-input_container--result {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .prediction-result-box {
+    flex: 1;
+  }
+
+  .predicted-price-heading {
+    font-size: 15px !important;
+    font-weight: 900;
+
+  }
+
+  .predicted-price {
+    display: block;
+    margin-top: 0.5rem !important;
+    font-size: 25px !important;
+    font-weight: 900;
+  }
+
+  .offer-header {
+    display: block !important;
+  }
+
+  .text-primary {
+    font-size: 35px;
+  }
+
+  .text-secondary {
+    font-size: 15px;
+  }
+
+  .listing {
+    height: 350px !important;
+    margin-top: 2rem !important;
+  }
+
+  .listing-text {
+    font-size: 12px;
+  }
+
+  .offer-text {
+    margin-bottom: 1rem;
+  }
+
+  .secondary-btn {
+    padding: 10px 21px;
+    font-size: 12px;
+  }
+
+  .indication-symbol {
+    padding: 0.5rem !important;
+    margin-left: 0.5rem !important;
+    border-radius: 50%;
+  }
+
 }
 
 
@@ -276,14 +364,6 @@ body {
 
 .navbar-items {
   margin-left: 2rem;
-}
-
-.primary-btn {
-  padding: 13px 24px;
-  background-color: #1C3988;
-  color: #FFFFFF;
-  text-decoration: none;
-  border-radius: 5px;
 }
 
 .navbar-link {
@@ -323,6 +403,20 @@ body {
 
 .header-img {
   object-fit: cover;
+}
+
+.prediction-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prediction-input_container--result {
+  width: 60%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .prediction-box {
@@ -367,10 +461,14 @@ body {
   padding: 0.5rem;
 }
 
-.prediction-btn {
+.prediction-btn-box {
   margin-top: 2rem;
   margin-left: 1rem;
-  
+}
+
+.prediction-btn {
+  border: none;
+  cursor: pointer;
 }
 
 .prediction-result-box {
@@ -388,4 +486,78 @@ body {
   margin-top: 1rem;
   font-size: 40px;
   font-weight: 900;
+}
+
+.offer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offer-text {
+  max-width: 560px;
+  margin-top: 1rem;
+}
+
+.listing {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 420px;
+  border-radius: 5px;
+  margin-top: 5rem;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+.listing-img-container {
+  height: 60%;
+  overflow: hidden;
+}
+
+.listing-details {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.indicator-container {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.indication-line {
+  height: 2px;
+  background-color: #DADAEE;
+  width: 100%;
+  position: relative;
+}
+
+.indication-symbol {
+  padding: 1rem;
+  background-color: #1C3988;
+  margin-left: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* OffersMain.css */
+
+.indication-symbol.disabled {
+  background-color: #DADAEE;
+  cursor: not-allowed;
+}
+
+.indication-progress {
+  width: 100px;
+  background-color: #1C3988;
+  height: 2px;
+  position: absolute;
+  border: 1px solid blue;
+  top: 0;
+  transition: all ease 0.3s;
 }
