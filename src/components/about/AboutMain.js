@@ -76,7 +76,7 @@ const AboutMain = () => {
             </SwiperSlide>
             <SwiperSlide>
               <Review
-                imgUrl={"Brooklyn.png"}
+                imgUrl={"brooklyn.png"}
                 review="UrbanAbode made my dream home a reality! User-friendly website, perfect match found. Thrilled and highly recommend!"
                 name="Brooklyn"
                 age={25}
