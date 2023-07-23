@@ -24,7 +24,6 @@ body {
 
 .secondary-btn {
   padding: 13px 24px;
-  padding: 13px 24px;
   background-color: transparent;
   font-weight: 600;
   color: #1C3988;
@@ -55,7 +54,7 @@ body {
 /* pages */
 
 .main-container {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   scroll-snap-type: y mandatory;
   height: 100vh;
   scroll-behavior: smooth;
@@ -357,7 +356,7 @@ body {
   .text-about {
     font-size: 15px !important;
   }
-  
+
   .about-main-content {
     display: flex;
     flex-direction: column;
@@ -380,19 +379,43 @@ body {
     font-size: 13px;
   }
 
-.about-main-details {
-  font-size: 13px !important;
+  .about-main-details {
+    font-size: 13px !important;
+  }
+
+  .about-main-text {
+    display: block !important;
+  }
+
+  .footer {
+    height: 100px !important;
+  }
+
+  .newsletter {
+    height: 300px !important;
+    padding: 2rem
+  }
+
+  .footer-section {
+    margin-top: 6rem;
+  }
+
+  .newsletter-content {
+    margin-left: 5rem;
+  }
+
+  .newsletter-heading {
+    font-size: 20px !important;
+  }
+
+  .newsletter-text {
+    font-size: 15px !important;
+  }
+
+  .newsletter-input {
+    margin-bottom: 1rem !important;
+  }
 }
-
-.about-main-text {
-  display: block !important;
-}
-
-}
-
-
-
-
 
 /* desktop */
 
@@ -682,3 +705,43 @@ body {
   width: 50%;
 }
 
+.newsletter {
+  height: 400px;
+  background-color: #F3F3FA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsletter-content {
+  margin-left: 5rem;
+}
+
+.newsletter-heading {
+  font-size: 30px;
+  font-weight: 600;
+  font-family: 'Merriweather';
+}
+
+.newsletter-text {
+  margin: 1rem 0;
+}
+
+.newsletter-input {
+  padding: 13px 24px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.newsletter-input:focus {
+  outline: none;
+}
+
+.footer {
+  height: 190px;
+  background-color: #1C3988;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

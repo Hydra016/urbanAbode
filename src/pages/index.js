@@ -4,6 +4,7 @@ import Offers from "@/components/Offers";
 import { store } from "../store";
 import { Provider } from "react-redux";
 import About from "@/components/about";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
         </section>
         <section className="screen">
           <About />
+        </section>
+        <section>
+          <Footer />
         </section>
       </div>
     </Provider>
