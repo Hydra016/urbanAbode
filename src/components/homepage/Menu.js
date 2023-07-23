@@ -15,19 +15,16 @@ const Menu = () => {
           <Image src="/cancel.png" alt="Menu" width={25} height={25} />
         </Link>
         <div className="menu-links-container">
-          <Link className="menu-link" href="/">
+        <Link onClick={() => setOpen(false)} className="menu-link" href="#home">
+            Home
+          </Link>
+          <Link onClick={() => setOpen(false)} className="menu-link" href="#offers">
             Top offers
           </Link>
-          <Link className="menu-link" href="/">
-            Search in offers
-          </Link>
-          <Link className="menu-link" href="/">
-            References
-          </Link>
-          <Link className="menu-link" href="/">
+          <Link onClick={() => setOpen(false)} className="menu-link" href="#about">
             About us
           </Link>
-          <Link className="menu-link" href="/">
+          <Link onClick={() => setOpen(false)} className="menu-link" href="#">
             Our team
           </Link>
         </div>

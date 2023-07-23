@@ -4,7 +4,7 @@ import AboutMain from './AboutMain'
 
 const About = () => {
   return (
-    <div className='inner-screen'>
+    <div id='about' className='inner-screen'>
         <AboutHeader />
         <AboutMain />
     </div>

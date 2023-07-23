@@ -4,7 +4,7 @@ import OffersMain from "./OffersMain";
 
 const Offers = () => {
   return (
-    <div className="offers-page inner-screen">
+    <div id="offers" className="offers-page inner-screen">
       <OfferHeader />
       <OffersMain />
     </div>

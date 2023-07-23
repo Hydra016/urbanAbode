@@ -4,7 +4,7 @@ import PredictionBox from "./PredictionBox";
 
 const Header = () => {
   return (
-    <div className="inner-screen">
+    <div id="home" className="inner-screen">
       <Navbar />
       <div className="header-main">
         <div className="header-description">
