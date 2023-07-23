@@ -99,13 +99,13 @@ const PredictionBox = () => {
             </div>
           ) : (
             <div className="prediction-loader-container">
-            <MoonLoader
-              color='#1C3988'
-              loading={isLoading}
-              cssOverride={override}
-              size={50}
-              aria-label="Loading Spinner"
-            />
+              <MoonLoader
+                color="#1C3988"
+                loading={isLoading}
+                cssOverride={override}
+                size={50}
+                aria-label="Loading Spinner"
+              />
             </div>
           )}
         </div>

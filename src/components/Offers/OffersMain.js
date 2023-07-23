@@ -24,13 +24,10 @@ const OffersMain = () => {
   };
 
   useEffect(() => {
-    // Handle initial window size
     handleResize();
 
-    // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -80,8 +77,7 @@ const OffersMain = () => {
             style={{
               width: calculateIndicatorWidth(),
               transform: `translateX(${
-                (activeSlide / (totalSlides - Math.floor(slidesPerView))) *
-                100
+                (activeSlide / (totalSlides - Math.floor(slidesPerView))) * 100
               }%)`,
             }}
           />
