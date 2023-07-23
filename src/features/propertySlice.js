@@ -28,7 +28,7 @@ const propertySlice = createSlice({
     },
     [fetchPricePrediction.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.price = action.payload.data.prediction;
+      state.price = Math.floor(action.payload.data.prediction);
     },
     [fetchPricePrediction.rejected]: (state) => {
       state.isLoading = false;

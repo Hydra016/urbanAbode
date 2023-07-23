@@ -51,6 +51,16 @@ body {
   font-size: 20px;
 }
 
+.disabled {
+  background-color: #9C2B2E;
+  transition: all 0.3s ease-in-out;
+}
+
+.note {
+  margin-left: 1rem;
+  font-size: 13px;
+}
+
 /* pages */
 
 .main-container {

@@ -7,9 +7,9 @@ import { MoonLoader } from "react-spinners";
 const PredictionBox = () => {
   const [mobile, setMobile] = useState(false);
   const [details, setDetails] = useState({
-    bedrooms: "",
-    floors: "",
-    sqft_lot: "",
+    bedrooms: 0,
+    floors: 0,
+    sqft_lot: 0,
   });
   const { price, isLoading } = useSelector((state) => state.propertyPrediction);
   const dispatch = useDispatch();
@@ -35,9 +35,25 @@ const PredictionBox = () => {
     };
   }, []);
 
+  const handleBedroomsChange = (e) => {
+    const value = parseInt(e.target.value);
+    setDetails({ ...details, bedrooms: Math.max(1, value) });
+  };
+
+  const handleFloorsChange = (e) => {
+    const value = parseInt(e.target.value);
+    setDetails({ ...details, floors: Math.max(1, value) });
+  };
+
+  const handleSqftLotChange = (e) => {
+    const value = parseInt(e.target.value);
+    setDetails({ ...details, sqft_lot: Math.max(1, value) });
+  };
+
   return (
     <div className="prediction-box">
       <span className="prediction-heading">Predict House Price!</span>
+      <p className="note">Note: the lot size should be atleast 500m2</p>
       <div className="prediction-input_container">
         <div className="prediction-input_container--details">
           <div className="prediction-room_box">
@@ -51,9 +67,8 @@ const PredictionBox = () => {
               className="prediction-input"
               type="number"
               placeholder="rooms"
-              onChange={(e) =>
-                setDetails({ ...details, bedrooms: e.target.value })
-              }
+              value={details.bedrooms}
+              onChange={handleBedroomsChange}
             />
           </div>
           <div className="prediction-room_box">
@@ -67,9 +82,8 @@ const PredictionBox = () => {
               className="prediction-input"
               type="number"
               placeholder="floors"
-              onChange={(e) =>
-                setDetails({ ...details, floors: e.target.value })
-              }
+              value={details.floors}
+              onChange={handleFloorsChange}
             />
           </div>
           <div className="prediction-room_box">
@@ -83,9 +97,8 @@ const PredictionBox = () => {
               className="prediction-input"
               type="number"
               placeholder="sqft area"
-              onChange={(e) =>
-                setDetails({ ...details, sqft_lot: e.target.value })
-              }
+              value={details.sqft_lot}
+              onChange={handleSqftLotChange}
             />
           </div>
         </div>
@@ -113,8 +126,11 @@ const PredictionBox = () => {
       <div className="prediction-btn-box">
         <button
           href="/"
-          className="primary-btn prediction-btn"
+          className={`${
+            details.sqft_lot < 500 ? "disabled" : null
+          } primary-btn prediction-btn`}
           onClick={() => dispatch(fetchPricePrediction(details))}
+          disabled={details.sqft_lot < 500 ? true : false}
         >
           Predict Price
         </button>
