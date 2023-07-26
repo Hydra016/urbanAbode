@@ -18,7 +18,7 @@ const PropertyListing = ({ house }) => {
           Large 4-room apartment with a beautiful terrace
         </span>
         <div>
-          <p>
+          <p className="offer-price">
             <b>{house.list_price}$</b>
           </p>
           <p className="offer-address">{house.location.address.city}</p>

@@ -586,6 +586,10 @@ body {
   margin-top: 1rem;
 }
 
+.offer-price {
+  margin: 0.5rem 0;
+}
+
 .offer-address {
   font-size: 13px;
 }
