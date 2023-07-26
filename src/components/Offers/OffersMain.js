@@ -131,7 +131,7 @@ const OffersMain = () => {
         {houses &&
           houses.slice(0,7).map((house) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={house.property_id}>
                 <PropertyListing house={house} />
               </SwiperSlide>
             );
