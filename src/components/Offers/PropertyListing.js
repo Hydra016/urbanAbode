@@ -1,17 +1,16 @@
 import React from "react";
 import Image from "next/image";
 
-const PropertyListing = () => {
+const PropertyListing = ({ house }) => {
+  console.log(house)
   return (
     <div className="listing">
       <div className="listing-img-container">
-        <Image
-          src="/temp.png"
+        <img
+          src={house.primary_photo.href}
           alt="listing"
-          layout="responsive"
-          width={100}
-          height={100}
-          objectFit="cover"
+          // layout="responsive"
+          style={{ height: '100%', width: '100%', objectFit: 'cover' }}
         />
       </div>
       <div className="listing-details">
@@ -20,9 +19,9 @@ const PropertyListing = () => {
         </span>
         <div>
           <p>
-            <b>320 000€</b>
+            <b>{house.list_price}$</b>
           </p>
-          <p>Barcelona IX.</p>
+          <p>{house.location.address.city}, {house.location.address.line}</p>
         </div>
       </div>
     </div>

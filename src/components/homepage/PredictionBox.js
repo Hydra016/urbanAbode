@@ -11,7 +11,7 @@ const PredictionBox = () => {
     floors: 0,
     sqft_lot: 0,
   });
-  const { price, isLoading } = useSelector((state) => state.propertyPrediction);
+  const { price, isPriceLoading } = useSelector((state) => state.propertyPrediction);
   const dispatch = useDispatch();
 
   const override = {
@@ -103,7 +103,7 @@ const PredictionBox = () => {
           </div>
         </div>
         <div className="prediction-input_container--result">
-          {!isLoading ? (
+          {!isPriceLoading ? (
             <div className="prediction-result-box">
               <span className="predicted-price-heading">
                 The predicted price will be
@@ -114,7 +114,7 @@ const PredictionBox = () => {
             <div className="prediction-loader-container">
               <MoonLoader
                 color="#1C3988"
-                loading={isLoading}
+                loading={isPriceLoading}
                 cssOverride={override}
                 size={50}
                 aria-label="Loading Spinner"

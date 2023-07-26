@@ -1,19 +1,25 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import PropertyListing from "./PropertyListing";
 import Image from "next/image";
+import { fetchProperties } from "@/features/propertySlice";
+import { useDispatch, useSelector } from "react-redux";
 
 SwiperCore.use([Autoplay, Pagination]);
 
 const OffersMain = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [mobile, setMobile] = useState(false);
-  const totalSlides = 5;
+  const totalSlides = 7;
   const slidesPerView = mobile ? 1.5 : 3.5;
   const swiperRef = useRef(null);
+  const dispatch = useDispatch();
+  const { houses } = useSelector(
+    (state) => state.propertyPrediction
+  );
 
   const handleResize = () => {
     if (window.innerWidth < 800) {
@@ -22,6 +28,10 @@ const OffersMain = () => {
       setMobile(false);
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchProperties());
+  }, []);
 
   useEffect(() => {
     handleResize();
@@ -118,21 +128,14 @@ const OffersMain = () => {
         onSlideChange={handleSlideChange}
         ref={swiperRef}
       >
-        <SwiperSlide>
-          <PropertyListing />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PropertyListing />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PropertyListing />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PropertyListing />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PropertyListing />
-        </SwiperSlide>
+        {houses &&
+          houses.slice(0,7).map((house) => {
+            return (
+              <SwiperSlide>
+                <PropertyListing house={house} />
+              </SwiperSlide>
+            );
+          })}
       </Swiper>
       <div className="swiper-pagination-container">
         <div
