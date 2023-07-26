@@ -22,6 +22,24 @@ body {
   position: relative;
 }
 
+.splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+}
+
+.splashContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .secondary-btn {
   padding: 13px 24px;
   background-color: transparent;
