@@ -21,7 +21,7 @@ const PropertyListing = ({ house }) => {
           <p>
             <b>{house.list_price}$</b>
           </p>
-          <p>{house.location.address.city}</p>
+          <p className="offer-address">{house.location.address.city}</p>
           <p className="offer-address">{house.location.address.line}</p>
         </div>
       </div>
