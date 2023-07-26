@@ -586,6 +586,10 @@ body {
   margin-top: 1rem;
 }
 
+.offer-address {
+  font-size: 13px;
+}
+
 .listing {
   background-color: #FFFFFF;
   width: 100%;
