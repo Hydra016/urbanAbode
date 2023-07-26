@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import About from "@/components/about";
 import Footer from "@/components/footer";
-import { useSelector } from "react-redux";
 import Header from "@/components/homepage/Header";
 import Offers from "@/components/Offers";
 import { Fade } from "react-reveal";
@@ -13,7 +12,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 5000);
+    }, 13000);
     return () => clearTimeout(timer);
   }, []);
 

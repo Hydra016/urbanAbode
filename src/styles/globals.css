@@ -22,6 +22,12 @@ body {
   position: relative;
 }
 
+.splash-animation {
+  width: 500px;
+  height: 380px;
+  overflow: hidden;
+}
+
 .splash {
   display: flex;
   flex-direction: column;
@@ -29,15 +35,15 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
-
 }
 
 .splashContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #1C3988;
 }
 
 .secondary-btn {
@@ -117,6 +123,10 @@ body {
     background-color: '#E5E5E5';
     font-family: 'Open Sans';
     color: #141B2D;
+  }
+
+  .splash-animation {
+    all: unset;
   }
 
   .inner-screen {
