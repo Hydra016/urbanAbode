@@ -20,7 +20,7 @@ const SplashScreen = () => {
                   .changeDelay(5)
                   .typeString("Please wait, <br>")
                   .pauseFor(500)
-                  .typeString("While we set things up")
+                  .typeString("While we set things up!")
                   .pauseFor(500)
                   .start()
               }}
