@@ -21,21 +21,10 @@ const SplashScreen = () => {
           onInit={(typewriter) => {
             typewriter
               .changeDelay(35)
-              .pauseFor(200)
+              .pauseFor(800)
               .typeString(
-                "<span style='color: #fff'>Looking for a new crib?</span>"
+                "<span style='color: #fff'>Welcome Home :)</span>"
               )
-              .pauseFor(500)
-              .deleteAll()
-              .typeString("<span style='color: #fff'>Guess what?</span>")
-              .pauseFor(500)
-              .deleteAll()
-              .typeString(
-                "<span style='color: #fff'>You are at the right place?</span>"
-              )
-              .pauseFor(500)
-              .deleteAll()
-              .typeString("<span style='color: #fff'>Welcome HOME!</span>")
               .pauseFor(500)
               .deleteAll()
               .start();

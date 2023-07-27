@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import PropertyListing from "./PropertyListing";
 import Image from "next/image";
 import { fetchProperties } from "@/features/propertySlice";
+import { MoonLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 
 SwiperCore.use([Autoplay, Pagination]);
@@ -17,9 +18,18 @@ const OffersMain = () => {
   const slidesPerView = mobile ? 1.5 : 3.5;
   const swiperRef = useRef(null);
   const dispatch = useDispatch();
-  const { houses } = useSelector(
+  const { houses, isLoading } = useSelector(
     (state) => state.propertyPrediction
   );
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+
+
+  console.log(isLoading)
 
   const handleResize = () => {
     if (window.innerWidth < 800) {
@@ -128,14 +138,20 @@ const OffersMain = () => {
         onSlideChange={handleSlideChange}
         ref={swiperRef}
       >
-        {houses &&
+        {isLoading ? houses &&
           houses.slice(0,7).map((house) => {
             return (
               <SwiperSlide key={house.property_id}>
                 <PropertyListing house={house} />
               </SwiperSlide>
             );
-          })}
+          }) : <MoonLoader
+          color="#1C3988"
+          loading={isLoading}
+          cssOverride={override}
+          size={50}
+          aria-label="Loading Spinner"
+        />}
       </Swiper>
       <div className="swiper-pagination-container">
         <div
