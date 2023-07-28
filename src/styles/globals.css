@@ -181,6 +181,12 @@ body {
     overflow: hidden !important;
   }
 
+  .splash-out {
+    -webkit-animation: slideOut 1s forwards;
+    -moz-animation: slideOut 1s forwards;
+    animation: slideOut 1s forwards;
+  }
+
   @-moz-keyframes slideOut {
     0% {
       transform: translateX(0px);
