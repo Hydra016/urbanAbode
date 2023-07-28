@@ -112,6 +112,10 @@ body {
   margin-top: 6rem;
 }
 
+.spNotVisible {
+  background-color: #9C2B2E;
+}
+
 /* mobile */
 
 @media (max-width: 900px) {

@@ -28,9 +28,6 @@ const OffersMain = () => {
     borderColor: "red",
   };
 
-
-  console.log(isLoading)
-
   const handleResize = () => {
     if (window.innerWidth < 800) {
       setMobile(true);
@@ -138,20 +135,24 @@ const OffersMain = () => {
         onSlideChange={handleSlideChange}
         ref={swiperRef}
       >
-        {isLoading ? houses &&
-          houses.slice(0,7).map((house) => {
+        {isLoading ? (
+          houses &&
+          houses.slice(0, 7).map((house) => {
             return (
               <SwiperSlide key={house.property_id}>
                 <PropertyListing house={house} />
               </SwiperSlide>
             );
-          }) : <MoonLoader
-          color="#1C3988"
-          loading={isLoading}
-          cssOverride={override}
-          size={50}
-          aria-label="Loading Spinner"
-        />}
+          })
+        ) : (
+          <MoonLoader
+            color="#1C3988"
+            loading={isLoading}
+            cssOverride={override}
+            size={50}
+            aria-label="Loading Spinner"
+          />
+        )}
       </Swiper>
       <div className="swiper-pagination-container">
         <div

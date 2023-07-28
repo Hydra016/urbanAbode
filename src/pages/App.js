@@ -18,11 +18,9 @@ const App = () => {
 
   return (
     <div className="main-container">
-      {showSplash && (
-        <div className="splash-screen">
-          <SplashScreen />
-        </div>
-      )}
+      <div className={showSplash ? "splash-screen" : "menu-opened-out"}>
+        {showSplash && <SplashScreen />}
+      </div>
 
       {!showSplash && (
         <Fade duration={1500}>
