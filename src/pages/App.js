@@ -18,7 +18,9 @@ const App = () => {
 
   return (
     <div className="main-container">
-      <div className={showSplash ? "splash-screen" : "splash-out menu-opened-out"}>
+      <div
+        className={showSplash ? "splash-screen" : "splash-out menu-opened-out"}
+      >
         {showSplash && <SplashScreen />}
       </div>
 

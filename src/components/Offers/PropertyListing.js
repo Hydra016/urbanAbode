@@ -1,7 +1,7 @@
 import React from "react";
 
 const PropertyListing = ({ house }) => {
-
+  console.log(house)
   return (
     <div className="listing">
       <div className="listing-img-container">

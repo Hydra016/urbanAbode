@@ -612,6 +612,15 @@ body {
   font-weight: 900;
 }
 
+.loading-container {
+  margin-top: 5rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+}
+
 .offer-header {
   display: flex;
   justify-content: space-between;

@@ -6,8 +6,9 @@ import "swiper/css/pagination";
 import PropertyListing from "./PropertyListing";
 import Image from "next/image";
 import { fetchProperties } from "@/features/propertySlice";
-import { MoonLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
+import Lottie from "lottie-react";
+import animationData from "../../../public/splash.json";
 
 SwiperCore.use([Autoplay, Pagination]);
 
@@ -21,12 +22,6 @@ const OffersMain = () => {
   const { houses, isLoading } = useSelector(
     (state) => state.propertyPrediction
   );
-
-  const override = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-  };
 
   const handleResize = () => {
     if (window.innerWidth < 800) {
@@ -135,7 +130,7 @@ const OffersMain = () => {
         onSlideChange={handleSlideChange}
         ref={swiperRef}
       >
-        {isLoading ? (
+        {!isLoading ? (
           houses &&
           houses.slice(0, 7).map((house) => {
             return (
@@ -145,13 +140,9 @@ const OffersMain = () => {
             );
           })
         ) : (
-          <MoonLoader
-            color="#1C3988"
-            loading={isLoading}
-            cssOverride={override}
-            size={50}
-            aria-label="Loading Spinner"
-          />
+          <div className="loading-container">
+            <Lottie animationData={animationData} />
+          </div>
         )}
       </Swiper>
       <div className="swiper-pagination-container">

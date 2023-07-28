@@ -9,56 +9,45 @@ export const fetchPricePrediction = createAsyncThunk(
   }
 );
 
-export const fetchProperties = createAsyncThunk(
-  "property/houses",
-  async () => {
-    const options = {
-      method: 'POST',
-      url: 'https://realtor.p.rapidapi.com/properties/v3/list',
-      headers: {
-        'content-type': 'application/json',
-        'X-RapidAPI-Key': '3c5db2ffacmsh8bce2dc2363c016p15cda5jsn29e33ce36c3a',
-        'X-RapidAPI-Host': 'realtor.p.rapidapi.com'
+export const fetchProperties = createAsyncThunk("property/houses", async () => {
+  const options = {
+    method: "POST",
+    url: "https://realty-in-us.p.rapidapi.com/properties/v3/list",
+    headers: {
+      "content-type": "application/json",
+      "X-RapidAPI-Key": "3c5db2ffacmsh8bce2dc2363c016p15cda5jsn29e33ce36c3a",
+      "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
+    },
+    data: {
+      limit: 200,
+      offset: 0,
+      postal_code: "90004",
+      status: ["for_sale", "ready_to_build"],
+      sort: {
+        direction: "desc",
+        field: "list_date",
       },
-      data: {
-        limit: 200,
-        offset: 0,
-        postal_code: '90004',
-        status: [
-          'for_sale',
-          'ready_to_build'
-        ],
-        sort: {
-          direction: 'desc',
-          field: 'list_date'
-        }
-      }
-    };
-    
-    try {
-      const response = await axios.request(options);
-      return response;
-    } catch (error) {
-      console.error(error);
-    }
+    },
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response;
+  } catch (error) {
+    console.error(error);
   }
-)
+});
 
 const initialState = {
   price: 0,
   houses: [],
   isLoading: false,
-  isPriceLoading: false
+  isPriceLoading: false,
 };
 
 const propertySlice = createSlice({
   name: "property",
   initialState,
-  reducers: {
-    getPrediction: (state, action) => {
-      console.log("works");
-    },
-  },
   extraReducers: {
     [fetchPricePrediction.pending]: (state) => {
       state.isPriceLoading = true;
@@ -83,5 +72,4 @@ const propertySlice = createSlice({
   },
 });
 
-export const { getPrediction } = propertySlice.actions;
 export default propertySlice.reducer;
