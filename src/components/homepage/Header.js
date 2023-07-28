@@ -13,7 +13,7 @@ const Header = () => {
           </span>
           <p className="header-description_text">
             We provide a complete service for the sale, purchase or rental of
-            real estate. We have been operating in California more than 15
+            real estate. We have been operating in California more than 20
             years.
           </p>
           <PredictionBox />
