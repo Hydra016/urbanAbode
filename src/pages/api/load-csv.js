@@ -92,8 +92,15 @@ module.exports = function loadCSV(
     splitTest = false,
   }
 ) {
-  // Use the correct file path in the root folder of your Next.js application
-  const absoluteFilePath = path.resolve(process.cwd(), filename);
+  // Use different file paths depending on the environment
+  let absoluteFilePath;
+  if (process.env.NODE_ENV === "development") {
+    // In development mode, use the root folder of your Next.js application
+    absoluteFilePath = path.resolve(process.cwd(), filename);
+  } else {
+    // In production mode (e.g., AWS Lambda), use the Lambda execution environment's root directory
+    absoluteFilePath = path.resolve("/var/task", filename);
+  }
 
   let data = fs.readFileSync(absoluteFilePath, { encoding: "utf-8" });
   data = _.map(data.split("\n"), (d) => d.split(","));
