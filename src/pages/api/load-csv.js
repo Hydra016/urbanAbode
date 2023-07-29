@@ -92,7 +92,9 @@ module.exports = function loadCSV(
     splitTest = false,
   }
 ) {
-  const absoluteFilePath = path.resolve(__dirname, filename);
+  // Use the correct file path for AWS Lambda
+  const absoluteFilePath = path.resolve("/var/task", "chunks", filename);
+
   let data = fs.readFileSync(absoluteFilePath, { encoding: "utf-8" });
   data = _.map(data.split("\n"), (d) => d.split(","));
   data = _.dropRightWhile(data, (val) => _.isEqual(val, [""]));
@@ -139,4 +141,3 @@ module.exports = function loadCSV(
     return { features: data, labels };
   }
 };
-
