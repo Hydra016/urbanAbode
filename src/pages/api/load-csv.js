@@ -92,8 +92,8 @@ module.exports = function loadCSV(
     splitTest = false,
   }
 ) {
-  // Use the correct file path for AWS Lambda
-  const absoluteFilePath = path.resolve("/var/task", "chunks", filename);
+  // Use the correct file path in the root folder of your Next.js application
+  const absoluteFilePath = path.resolve(process.cwd(), filename);
 
   let data = fs.readFileSync(absoluteFilePath, { encoding: "utf-8" });
   data = _.map(data.split("\n"), (d) => d.split(","));
@@ -141,3 +141,4 @@ module.exports = function loadCSV(
     return { features: data, labels };
   }
 };
+
