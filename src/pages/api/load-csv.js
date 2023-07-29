@@ -92,15 +92,8 @@ module.exports = function loadCSV(
     splitTest = false,
   }
 ) {
-  let absoluteFilePath;
-  if (process.env.NODE_ENV === "development") {
-    // Use the same development mode path resolution
-    absoluteFilePath = path.resolve(process.cwd(), filename);
-  } else {
-    // Use the root folder of your Next.js application as the base path for production mode
-    const rootFolder = process.cwd();
-    absoluteFilePath = path.resolve(rootFolder, filename);
-  }
+  // Use the default path resolution, which should work correctly on Vercel
+  const absoluteFilePath = path.resolve(filename);
 
   let data = fs.readFileSync(absoluteFilePath, { encoding: "utf-8" });
   data = _.map(data.split("\n"), (d) => d.split(","));
@@ -148,4 +141,5 @@ module.exports = function loadCSV(
     return { features: data, labels };
   }
 };
+
 
