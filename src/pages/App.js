@@ -3,7 +3,6 @@ import About from "@/components/about";
 import Footer from "@/components/footer";
 import Header from "@/components/homepage/Header";
 import Offers from "@/components/Offers";
-import { Fade } from "react-reveal";
 import SplashScreen from "@/components/utils/SlashScreen";
 
 const App = () => {
