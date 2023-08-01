@@ -92,7 +92,7 @@ module.exports = function loadCSV(
     splitTest = false,
   }
 ) {
-  // Use the default path resolution, which should work correctly on Vercel
+
   const absoluteFilePath = path.resolve(filename);
 
   let data = fs.readFileSync(absoluteFilePath, { encoding: "utf-8" });

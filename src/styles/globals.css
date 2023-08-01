@@ -148,6 +148,7 @@ body {
 
   .mobile-menu {
     display: block !important;
+    z-index: 19 !important;
   }
 
   .menu-opened {

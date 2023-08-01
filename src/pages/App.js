@@ -25,7 +25,7 @@ const App = () => {
       </div>
 
       {!showSplash && (
-        <Fade duration={1500}>
+        <div>
           <section className="screen">
             <Header />
           </section>
@@ -38,7 +38,7 @@ const App = () => {
           <section>
             <Footer />
           </section>
-        </Fade>
+        </div>
       )}
     </div>
   );
