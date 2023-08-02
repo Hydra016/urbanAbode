@@ -53,7 +53,9 @@ const PredictionBox = () => {
   };
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      dispatch(fetchPricePrediction(details));
+      if(!err && details.sqft_lot > 500) {
+        dispatch(fetchPricePrediction(details));
+      }
     }
   }
 
