@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const rapidAPIKey = process.env.NEXT_PUBLIC_X_RAPIDAPI_KEY;
+
 export const fetchPricePrediction = createAsyncThunk(
   "property/pricePrediction",
   async (details) => {
@@ -15,7 +17,7 @@ export const fetchProperties = createAsyncThunk("property/houses", async () => {
     url: "https://realty-in-us.p.rapidapi.com/properties/v3/list",
     headers: {
       "content-type": "application/json",
-      "X-RapidAPI-Key": "3c5db2ffacmsh8bce2dc2363c016p15cda5jsn29e33ce36c3a",
+      "X-RapidAPI-Key": rapidAPIKey,
       "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
     },
     data: {

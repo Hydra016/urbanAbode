@@ -6,6 +6,7 @@ import { MoonLoader } from "react-spinners";
 
 const PredictionBox = () => {
   const [mobile, setMobile] = useState(false);
+  const [err, setErr] = useState(true);
   const [details, setDetails] = useState({
     bedrooms: 0,
     floors: 0,
@@ -28,6 +29,7 @@ const PredictionBox = () => {
     }
   };
 
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => {
@@ -49,9 +51,31 @@ const PredictionBox = () => {
     const value = parseInt(e.target.value);
     setDetails({ ...details, sqft_lot: Math.max(1, value) });
   };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      dispatch(fetchPricePrediction(details));
+    }
+  }
+
+  const checkErrors = (arr) => {
+    if(Object.values(arr).some((value) => value === 0 || isNaN(value))) {
+      setErr(true)
+    } else {
+      setErr(false)
+    }
+  }
+
+  useEffect(() => {
+    checkErrors(details);
+  }, [details]);
+  
+  const handleSubmit = (details, e) => {
+    e.preventDefault()
+    dispatch(fetchPricePrediction(details))
+  }
 
   return (
-    <div className="prediction-box">
+    <form className="prediction-box" onKeyDown={handleKeyPress}>
       <span className="prediction-heading">Predict House Price!</span>
       <p className="note">Note: the lot size should be atleast 500m2</p>
       <div className="prediction-input_container">
@@ -124,18 +148,17 @@ const PredictionBox = () => {
         </div>
       </div>
       <div className="prediction-btn-box">
-        <button
+        <input 
+          type="submit"
           href="/"
           className={`${
-            details.sqft_lot < 500 ? "disabled" : null
+            details.sqft_lot < 500 || err ? "disabled" : null
           } primary-btn prediction-btn`}
-          onClick={() => dispatch(fetchPricePrediction(details))}
-          disabled={details.sqft_lot < 500 ? true : false}
-        >
-          Predict Price
-        </button>
+          onClick={(e) => handleSubmit(details, e)}
+          disabled={details.sqft_lot < 500 || err ? true : false}
+        />
       </div>
-    </div>
+    </form>
   );
 };
 

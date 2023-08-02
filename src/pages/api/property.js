@@ -44,10 +44,8 @@ export default async function handler(req, res) {
       tf.tensor([parseInt(floors), parseInt(bedrooms), parseInt(sqft_lot)]),
       10
     );
-      console.log('lora')
     res.status(200).json({ success: true, prediction });
   } else {
-    console.log('lassan')
     res.status(405).json({ success: false, message: "you are stupid" });
   }
 }

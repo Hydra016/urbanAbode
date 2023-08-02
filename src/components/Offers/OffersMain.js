@@ -31,7 +31,7 @@ const OffersMain = () => {
     }
   };
 
-  useEffect(() => {
+  useMemo(() => {
     dispatch(fetchProperties());
   }, []);
 
