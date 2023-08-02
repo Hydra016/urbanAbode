@@ -24,9 +24,6 @@ const Menu = () => {
           <Link onClick={() => setOpen(false)} className="menu-link" href="#about">
             About us
           </Link>
-          <Link onClick={() => setOpen(false)} className="menu-link" href="#">
-            Our team
-          </Link>
         </div>
       </div>
     </>

@@ -478,6 +478,10 @@ body {
   .newsletter-input {
     margin-bottom: 1rem !important;
   }
+
+  .footer-rights {
+    font-size: 13px;
+  }
 }
 
 /* desktop */
@@ -863,4 +867,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0;
+}
+
+.footer-rights {
+  margin-top: 1rem;
+  color: #FFF;
 }

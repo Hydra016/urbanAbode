@@ -54,6 +54,7 @@ const Footer = () => {
           width={120}
           height={63}
         />
+        <span className="footer-rights">Made By Haider @2023 all rights reserved</span>
       </div>
     </div>
   );
