@@ -70,6 +70,7 @@ body {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .contact-btn:hover {
@@ -515,6 +516,7 @@ body {
   text-decoration: none;
   color: #000;
   padding-bottom: 0.2rem;
+  cursor: pointer;
 }
 
 .navbar-link::after {
