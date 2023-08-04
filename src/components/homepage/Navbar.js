@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Menu from "./Menu";
+import { Link as ScrollLink } from 'react-scroll'
 
 const Navbar = () => {
   const [mobile, setMobile] = useState(false);
@@ -36,27 +37,27 @@ const Navbar = () => {
           />
         </Link>
         <div className="navbar-items">
-          <Link className="navbar-link" href="/">
+          <ScrollLink className="navbar-link" to="offers" smooth={true} duration={500}>
             Top offers
-          </Link>
-          <Link className="navbar-link" href="/">
+          </ScrollLink>
+          <ScrollLink className="navbar-link" to="footer" smooth={true} duration={500}>
             Search in offers
-          </Link>
-          <Link className="navbar-link" href="/">
+          </ScrollLink>
+          <ScrollLink className="navbar-link" to="footer" smooth={true} duration={500}>
             References
-          </Link>
-          <Link className="navbar-link" href="/">
+          </ScrollLink>
+          <ScrollLink className="navbar-link" to="about" smooth={true} duration={500}>
             About us
-          </Link>
-          <Link className="navbar-link" href="/">
+          </ScrollLink>
+          <ScrollLink className="navbar-link" to="footer" smooth={true} duration={500}>
             Our team
-          </Link>
+          </ScrollLink>
         </div>
       </div>
       <div>
-        <Link className="primary-btn contact-btn" href="/">
+        <ScrollLink to="footer"  className="primary-btn contact-btn" smooth={true} duration={500}>
           Contact us
-        </Link>
+        </ScrollLink>
         <Menu />
       </div>
     </div>

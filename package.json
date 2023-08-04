@@ -21,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-redux": "^8.1.1",
     "react-reveal": "^1.2.2",
+    "react-scroll": "^1.8.9",
     "react-spinners": "^0.13.8",
     "react-transition-group": "^4.4.5",
     "shuffle-seed": "^1.1.6",

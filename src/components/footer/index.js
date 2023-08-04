@@ -22,7 +22,7 @@ const Footer = () => {
     };
   }, []);
   return (
-    <div className="footer-section">
+    <div id="footer" className="footer-section">
       <div className="newsletter">
         <Image
           src="/newsletter.png"
