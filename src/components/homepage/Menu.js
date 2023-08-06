@@ -6,7 +6,7 @@ const Menu = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
+    <div className="navbar-container">
       <Link
         smooth={true}
         duration={500}
@@ -65,7 +65,7 @@ const Menu = () => {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

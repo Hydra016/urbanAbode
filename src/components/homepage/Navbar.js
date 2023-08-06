@@ -32,8 +32,8 @@ const Navbar = () => {
           <Image
             src="/logo.png"
             alt="My Image"
-            width={mobile ? 35 : 100}
-            height={mobile ? 25 : 50}
+            width={mobile ? 35 : 60}
+            height={mobile ? 25 : 35}
           />
         </Link>
         <div className="navbar-items">
