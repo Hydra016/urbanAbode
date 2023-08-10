@@ -534,7 +534,9 @@ body {
     padding: 0.5rem 0.5rem !important;
   }
   
-  
+  .no_houses {
+    margin-top: 5rem !important;
+  }
 }
 
 /* desktop */
@@ -1102,4 +1104,17 @@ body {
 
 .showmore-btn {
   border: none;
+}
+
+.no_houses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.no_houses-text {
+  margin-top: 1rem;
 }

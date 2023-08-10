@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import OfferListing from "./OfferListing";
+import Image from "next/image";
 
 const OffersPageResults = ({ houses, filters, sliderValue }) => {
   const [pages, setPages] = useState(9);
@@ -25,28 +26,38 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
       setPages(pages + 3);
     }
   };
+
   return (
     <div className="offerPageResultsContiner-max">
       <div className="offerPageResultsContiner">
-        {houses && newHouses.slice(0, pages).map((house) => {
-              return <OfferListing house={house} />;
-            })}
+        {houses && newHouses.length < 1 ? (
+          <div className="no_houses">
+            <Image src="/empty.png" alt="My Image" width={80} height={85} />
+            <p className="no_houses-text">Change filters to view houses</p>
+          </div>
+        ) : (
+          newHouses.slice(0, pages).map((house) => {
+            return <OfferListing house={house} />;
+          })
+        )}
       </div>
-      <div className="showmore-btn-container">
-        <button
-          className={
-            disabled
-              ? "disabled primary-btn showmore-btn"
-              : "primary-btn showmore-btn contact-btn"
-          }
-          smooth={true}
-          duration={500}
-          onClick={() => handlePages(pages)}
-          disabled={disabled}
-        >
-          Show More {pages}
-        </button>
-      </div>
+      {newHouses.length > 9 ? (
+        <div className="showmore-btn-container">
+          <button
+            className={
+              disabled
+                ? "disabled primary-btn showmore-btn"
+                : "primary-btn showmore-btn contact-btn"
+            }
+            smooth={true}
+            duration={500}
+            onClick={() => handlePages(pages)}
+            disabled={disabled}
+          >
+            Show More {pages}
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 };
