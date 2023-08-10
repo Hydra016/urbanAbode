@@ -54,7 +54,7 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
             onClick={() => handlePages(pages)}
             disabled={disabled}
           >
-            Show More {pages}
+            Show More
           </button>
         </div>
       ) : null}
