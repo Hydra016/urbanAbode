@@ -59,7 +59,7 @@ body {
 }
 
 .secondary-btn:hover {
-  background-color: #0F2652; 
+  background-color: #0F2652;
   color: #FFF;
 }
 
@@ -74,7 +74,7 @@ body {
 }
 
 .contact-btn:hover {
-  background-color: #0F2652; 
+  background-color: #0F2652;
 }
 
 .text-primary {
@@ -93,12 +93,16 @@ body {
 }
 
 .disabled:hover {
-  background-color: #7F1F21 !important; 
+  background-color: #7F1F21 !important;
 }
 
 .note {
   margin-left: 1rem;
   font-size: 13px;
+}
+
+.secondary-navbar {
+  padding: 1.5rem 3rem;
 }
 
 /* pages */
@@ -135,6 +139,10 @@ body {
 /* mobile */
 
 @media (max-width: 900px) {
+  .showmore-btn {
+    display: block !important;
+  }
+
   * {
     box-sizing: border-box;
     padding: 0;
@@ -483,6 +491,50 @@ body {
   .footer-rights {
     font-size: 13px;
   }
+
+
+  /* offersPage */
+  .offersPageMain {
+    margin-top: 0 !important;
+  }
+
+  .secondary-navbar {
+    padding: 1.5rem 1rem;
+  }
+
+  .offersPageSettings-slider--container {
+    width: 100% !important;
+  }
+
+  .offersPageSettings-slider--container--sub {
+    width: 100%;
+  }
+
+  .offersPageSettings-slider {
+    width: 100% !important;
+  }
+
+  .offersPageSettings-slider-indicators {
+    width: 100% !important;
+  }
+
+  .offersPageSettings {
+    margin-top: 2rem;
+    background-color: #F3F3FA;
+    padding: 2rem 1rem !important;
+  }
+  
+  .offer-listing {
+    width: 100% !important;
+  }
+
+  .offerPageResultsContiner {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.5rem !important;
+  }
+  
+  
 }
 
 /* desktop */
@@ -526,7 +578,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #1C3988; 
+  background-color: #1C3988;
   transition: width 0.3s ease-in-out;
 }
 
@@ -646,7 +698,7 @@ body {
 }
 
 .prediction-btn:hover {
-  background-color: #0F2652; 
+  background-color: #0F2652;
 }
 
 
@@ -877,4 +929,177 @@ body {
 .footer-rights {
   margin-top: 1rem;
   color: #FFF;
+}
+
+/* pages */
+
+/* offers */
+
+.offersPageMain {
+  margin-top: 3rem;
+}
+
+.offersPageMain-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.offersPageSettings {
+  margin-top: 2rem;
+  background-color: #F3F3FA;
+  padding: 2rem 10rem;
+}
+
+.offersPageSettings-input--container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.offersPageSettings-input {
+  width: 400px;
+}
+
+.offersPageSettings-filterHeading--container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.offersPageSettings-filterHeading--text {
+  padding: 0 2rem;
+  z-index: 1;
+  background-color: #F3F3FA;
+  color: #141B2D;
+}
+
+.offersPageSettings-filterHeading--line::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  right: 10px;
+  height: 1px;
+  background-color: #DADAEE;
+}
+
+.offersPageSettings-filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offersPageSettings-filters-dropdown {
+  width: calc(100% / 4.1); 
+  max-width: 100%; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+
+}
+
+.offersPageSettings-slider--container {
+  margin-top: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.offersPageSettings-slider {
+  -webkit-appearance: none;
+  width: 500px;
+  height: 5px;
+  border-radius: 5px;
+  background: #A3B1E1;
+  outline: none;
+  opacity: 0.7;
+  transition: background 0.2s;
+}
+
+.offersPageSettings-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1C3988;
+  cursor: pointer;
+  transition: background 0.2s; 
+}
+
+.offersPageSettings-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #1C3988; 
+  cursor: pointer;
+  transition: background 0.2s; 
+}
+
+.offersPageSettings-slider:active::-webkit-slider-thumb {
+  background: #122b61;
+}
+
+.offersPageSettings-slider:active::-moz-range-thumb {
+  background: #122b61;
+}
+
+.offersPageSettings-slider-indicators {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin-top: 10px;
+}
+
+.offersPageSettings-slider-indicator {
+  position: absolute;
+  font-size: 12px;
+  color: #000;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.offersPageSettings-slider-indicator-start {
+  left: 0;
+}
+
+.offersPageSettings-slider-indicator-end {
+  right: 0;
+}
+
+.offersPageSettings-slider-indicator-current {
+  position: absolute;
+  top: -25px;
+  transform: translateX(-50%);
+}
+
+.offerPageResultsContiner {
+  display: flex;
+  flex-basis: 33.3%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem 3rem;
+}
+
+.offer-listing {
+  flex-basis: 32%;
+  margin-top: 1.5rem;
+}
+
+.showmore-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.showmore-btn {
+  border: none;
 }

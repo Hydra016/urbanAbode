@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const OfferHeader = () => {
   return (
@@ -11,7 +12,7 @@ const OfferHeader = () => {
         </p>
       </div>
       <div className="offer-header-btn">
-        <button className="offers-btn secondary-btn">Show all offers</button>
+        <Link href={`/offers`} className="offers-btn secondary-btn">Show all offers</Link>
       </div>
     </div>
   );

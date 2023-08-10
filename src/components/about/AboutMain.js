@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Review from "./Review";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 const AboutMain = () => {
-  const [mobile, setMobile] = useState(false);
-
-  const handleResize = () => {
-    if (window.innerWidth < 800) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const mobile = useMobileDetection();
 
   return (
     <div className="about-main">

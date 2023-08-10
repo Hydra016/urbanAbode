@@ -1,29 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Menu from "./Menu";
-import { Link as ScrollLink } from 'react-scroll'
+import { Link as ScrollLink } from "react-scroll";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 const Navbar = () => {
-  const [mobile, setMobile] = useState(false);
-
-  const handleResize = () => {
-    if (window.innerWidth < 800) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const mobile = useMobileDetection();
 
   return (
     <div className="navbar-container">
@@ -37,25 +20,55 @@ const Navbar = () => {
           />
         </Link>
         <div className="navbar-items">
-          <ScrollLink className="navbar-link" to="offers" smooth={true} duration={500}>
+          <ScrollLink
+            className="navbar-link"
+            to="offers"
+            smooth={true}
+            duration={500}
+          >
             Top offers
           </ScrollLink>
-          <ScrollLink className="navbar-link" to="footer" smooth={true} duration={500}>
+          <ScrollLink
+            className="navbar-link"
+            to="footer"
+            smooth={true}
+            duration={500}
+          >
             Search in offers
           </ScrollLink>
-          <ScrollLink className="navbar-link" to="footer" smooth={true} duration={500}>
+          <ScrollLink
+            className="navbar-link"
+            to="footer"
+            smooth={true}
+            duration={500}
+          >
             References
           </ScrollLink>
-          <ScrollLink className="navbar-link" to="about" smooth={true} duration={500}>
+          <ScrollLink
+            className="navbar-link"
+            to="about"
+            smooth={true}
+            duration={500}
+          >
             About us
           </ScrollLink>
-          <ScrollLink className="navbar-link" to="footer" smooth={true} duration={500}>
+          <ScrollLink
+            className="navbar-link"
+            to="footer"
+            smooth={true}
+            duration={500}
+          >
             Our team
           </ScrollLink>
         </div>
       </div>
       <div>
-        <ScrollLink to="footer"  className="primary-btn contact-btn" smooth={true} duration={500}>
+        <ScrollLink
+          to="footer"
+          className="primary-btn contact-btn"
+          smooth={true}
+          duration={500}
+        >
           Contact us
         </ScrollLink>
         <Menu />

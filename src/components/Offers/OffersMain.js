@@ -9,12 +9,13 @@ import { fetchProperties } from "@/features/propertySlice";
 import { useDispatch, useSelector } from "react-redux";
 import Lottie from "lottie-react";
 import animationData from "../../../public/splash.json";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 SwiperCore.use([Autoplay, Pagination]);
 
 const OffersMain = () => {
   const [activeSlide, setActiveSlide] = useState(0);
-  const [mobile, setMobile] = useState(false);
+  const mobile = useMobileDetection();
   const totalSlides = 7;
   const slidesPerView = mobile ? 1.5 : 3.5;
   const swiperRef = useRef(null);
@@ -23,26 +24,8 @@ const OffersMain = () => {
     (state) => state.propertyPrediction
   );
 
-  const handleResize = () => {
-    if (window.innerWidth < 800) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
   useEffect(() => {
     dispatch(fetchProperties());
-  }, []);
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   useEffect(() => {

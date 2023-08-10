@@ -1,26 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 const AboutHeader = () => {
-  const [mobile, setMobile] = useState(false);
-
-  const handleResize = () => {
-    if (window.innerWidth < 800) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const mobile = useMobileDetection();
 
   return (
     <div className="about-header">

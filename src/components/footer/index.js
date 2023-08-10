@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 const Footer = () => {
-  const [mobile, setMobile] = useState(false);
+  const mobile = useMobileDetection();
 
-  const handleResize = () => {
-    if (window.innerWidth < 800) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <div id="footer" className="footer-section">
       <div className="newsletter">
@@ -54,7 +38,9 @@ const Footer = () => {
           width={120}
           height={63}
         />
-        <span className="footer-rights">Made By Haider @2023 all rights reserved</span>
+        <span className="footer-rights">
+          Made By Haider @2023 all rights reserved
+        </span>
       </div>
     </div>
   );

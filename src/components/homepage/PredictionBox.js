@@ -3,16 +3,19 @@ import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPricePrediction } from "@/features/propertySlice";
 import { MoonLoader } from "react-spinners";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 const PredictionBox = () => {
-  const [mobile, setMobile] = useState(false);
+  const mobile = useMobileDetection();
   const [err, setErr] = useState(true);
   const [details, setDetails] = useState({
     bedrooms: 0,
     floors: 0,
     sqft_lot: 0,
   });
-  const { price, isPriceLoading } = useSelector((state) => state.propertyPrediction);
+  const { price, isPriceLoading } = useSelector(
+    (state) => state.propertyPrediction
+  );
   const dispatch = useDispatch();
 
   const override = {
@@ -20,22 +23,6 @@ const PredictionBox = () => {
     margin: "0 auto",
     borderColor: "red",
   };
-
-  const handleResize = () => {
-    if (window.innerWidth < 800) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  };
-
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const handleBedroomsChange = (e) => {
     const value = parseInt(e.target.value);
@@ -53,28 +40,28 @@ const PredictionBox = () => {
   };
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      if(!err && details.sqft_lot > 500) {
+      if (!err && details.sqft_lot > 500) {
         dispatch(fetchPricePrediction(details));
       }
     }
-  }
+  };
 
   const checkErrors = (arr) => {
-    if(Object.values(arr).some((value) => value === 0 || isNaN(value))) {
-      setErr(true)
+    if (Object.values(arr).some((value) => value === 0 || isNaN(value))) {
+      setErr(true);
     } else {
-      setErr(false)
+      setErr(false);
     }
-  }
+  };
 
   useEffect(() => {
     checkErrors(details);
   }, [details]);
-  
+
   const handleSubmit = (details, e) => {
-    e.preventDefault()
-    dispatch(fetchPricePrediction(details))
-  }
+    e.preventDefault();
+    dispatch(fetchPricePrediction(details));
+  };
 
   return (
     <form className="prediction-box" onKeyDown={handleKeyPress}>
@@ -150,7 +137,7 @@ const PredictionBox = () => {
         </div>
       </div>
       <div className="prediction-btn-box">
-        <input 
+        <input
           type="submit"
           href="/"
           className={`${
