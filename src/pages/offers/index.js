@@ -13,20 +13,45 @@ const Header = () => {
   const [filters, setFilters] = useState({
     houseType: "all",
     streetName: "all",
-    status: "all",
+    status: "for_rent",
     branding: "all",
   });
   let { houses, isLoading } = useSelector((state) => state.propertyPrediction);
 
-  const prices = houses.map((house) => parseFloat(house.list_price));
-  const minPrice = Math.min(...prices);
-  const maxPrice = Math.max(...prices);
+  const priceStats = houses.reduce(
+    (stats, house) => {
+      const price = parseFloat(house.list_price);
 
-  const [sliderValue, setSliderValue] = useState(699000);
+      if (!isNaN(price)) {
+        if (house.status === "for_sale") {
+          stats.forSale.push(price);
+        } else if (house.status === "for_rent") {
+          stats.forRent.push(price);
+        }
+      }
+
+      return stats;
+    },
+    { forSale: [], forRent: [] }
+  );
+
+  const minPriceForSale = Math.min(...priceStats.forSale);
+  const maxPriceForSale = Math.max(...priceStats.forSale);
+
+  const minPriceForRent = Math.min(...priceStats.forRent);
+  const maxPriceForRent = Math.max(...priceStats.forRent);
+
+  const [sliderValue, setSliderValue] = useState(1700);
 
   useEffect(() => {
     dispatch(fetchProperties());
   }, []);
+
+  useEffect(() => {
+    filters.status === "for_sale"
+      ? setSliderValue(699000)
+      : setSliderValue(1700);
+  }, [filters.status]);
 
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
@@ -57,8 +82,16 @@ const Header = () => {
             <div className="offersPageSettings-slider--container--sub">
               <input
                 type="range"
-                min={minPrice}
-                max={maxPrice}
+                min={
+                  filters.status === "for_sale"
+                    ? minPriceForSale
+                    : minPriceForRent
+                }
+                max={
+                  filters.status === "for_sale"
+                    ? maxPriceForSale
+                    : maxPriceForRent
+                }
                 value={sliderValue}
                 onChange={handleSliderChange}
                 className="offersPageSettings-slider"
@@ -69,7 +102,10 @@ const Header = () => {
                   ${sliderValue}
                 </div>
                 <div className="offersPageSettings-slider-indicator offersPageSettings-slider-indicator-end">
-                  ${maxPrice}
+                  $
+                  {filters.status === "for_sale"
+                    ? maxPriceForSale
+                    : maxPriceForRent}
                 </div>
               </div>
             </div>

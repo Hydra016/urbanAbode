@@ -5,9 +5,19 @@ const OfferListing = ({ house }) => {
     <div className="listing offer-listing">
       <div className="listing-img-container">
         <img
-          src={house.primary_photo.href}
+          src={house.primary_photo ? house.primary_photo.href : null}
           alt="listing"
           className="offer-img"
+        />
+        <img
+          className="offer-img"
+          src={
+            house.primary_photo ? (
+              house.primary_photo.href
+            ) : (
+              <Image src="/no-house.png" alt="My Image" />
+            )
+          }
         />
       </div>
       <div className="listing-details">

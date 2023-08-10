@@ -11,9 +11,16 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
+      sessionStorage.setItem('splashScreenShown', 'true')
     }, 4200);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if(JSON.parse(sessionStorage.getItem('splashScreenShown'))) {
+      setShowSplash(false)
+    }
+  }, [])
 
   return (
     <div className="main-container">

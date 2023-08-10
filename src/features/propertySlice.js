@@ -13,28 +13,32 @@ export const fetchPricePrediction = createAsyncThunk(
 
 export const fetchProperties = createAsyncThunk("property/houses", async () => {
   const options = {
-    method: "POST",
-    url: "https://realty-in-us.p.rapidapi.com/properties/v3/list",
+    method: 'POST',
+    url: 'https://realty-in-us.p.rapidapi.com/properties/v3/list',
     headers: {
-      "content-type": "application/json",
-      "X-RapidAPI-Key": rapidAPIKey,
-      "X-RapidAPI-Host": "realty-in-us.p.rapidapi.com",
+      'content-type': 'application/json',
+      'X-RapidAPI-Key': '959f787587mshb02a1696caa686cp156877jsn5bf17418c17b',
+      'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
     },
     data: {
       limit: 200,
       offset: 0,
-      postal_code: "90004",
-      status: ["for_sale", "ready_to_build"],
+      postal_code: '90004',
+      status: [
+        'for_sale',
+        'for_rent',
+        'ready_to_build'
+      ],
       sort: {
-        direction: "desc",
-        field: "list_date",
-      },
-    },
+        direction: 'desc',
+        field: 'list_date'
+      }
+    }
   };
-
+  
   try {
     const response = await axios.request(options);
-    return response;
+    return response
   } catch (error) {
     console.error(error);
   }

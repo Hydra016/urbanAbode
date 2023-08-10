@@ -1,11 +1,26 @@
 import React from "react";
+import Image from "next/image";
+import { useMobileDetection } from "@/hooks/useMobile";
 
 const PropertyListing = ({ house }) => {
+  const mobile = useMobileDetection()
+
   return (
     <div className="listing">
       <div className="listing-img-container">
         <img
-          src={house.primary_photo.href}
+          src={
+            house.primary_photo ? (
+              house.primary_photo.href
+            ) : (
+              <Image
+                src="/no-house.png"
+                alt="My Image"
+                width={mobile ? 35 : 60}
+                height={mobile ? 25 : 35}
+              />
+            )
+          }
           alt="listing"
           className="offer-img"
         />

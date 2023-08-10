@@ -5,7 +5,6 @@ import Image from "next/image";
 const OffersPageResults = ({ houses, filters, sliderValue }) => {
   const [pages, setPages] = useState(9);
   const [disabled, setDisabled] = useState(false);
-
   let newHouses = houses.filter(
     (house) =>
       (filters.houseType === "all" ||
@@ -14,7 +13,7 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
         house.location.address.street_name === filters.streetName) &&
       (filters.status === "all" || house.status === filters.status) &&
       (filters.branding === "all" ||
-        house.branding[0].name === filters.branding) &&
+        (house.branding[0] && house.branding[0].name === filters.branding)) &&
       house.list_price > sliderValue
   );
 
@@ -36,8 +35,8 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
             <p className="no_houses-text">Change filters to view houses</p>
           </div>
         ) : (
-          newHouses.slice(0, pages).map((house) => {
-            return <OfferListing house={house} />;
+          newHouses.slice(0, pages).map((house, i) => {
+            return <OfferListing key={i} house={house} />;
           })
         )}
       </div>
@@ -49,8 +48,6 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
                 ? "disabled primary-btn showmore-btn"
                 : "primary-btn showmore-btn contact-btn"
             }
-            smooth={true}
-            duration={500}
             onClick={() => handlePages(pages)}
             disabled={disabled}
           >

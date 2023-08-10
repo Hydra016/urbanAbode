@@ -20,9 +20,12 @@ const OffersPageSettings = ({ houses, filters, setFilters }) => {
         >
           <option value="all">All</option>
           {[...new Set(houses.map((house) => house.description.type))].map(
-            (type) => (
-              <option key={type} value={type}>
-                {type.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+            (type, i) => (
+              <option key={i} value={type}>
+                {type
+                  .split("_")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
               </option>
             )
           )}
@@ -41,9 +44,12 @@ const OffersPageSettings = ({ houses, filters, setFilters }) => {
             ...new Set(
               houses.map((house) => house.location.address.street_name)
             ),
-          ].map((type) => (
-            <option key={type} value={type}>
-              {type}
+          ].map((type, i) => (
+            <option key={i} value={type}>
+              {type
+                .split("_")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")}
             </option>
           ))}
         </select>
@@ -54,10 +60,12 @@ const OffersPageSettings = ({ houses, filters, setFilters }) => {
           id="status"
           onChange={(e) => setFilters({ ...filters, status: e.target.value })}
         >
-          <option value="all">All</option>
-          {[...new Set(houses.map((house) => house.status))].map((type) => (
-            <option key={type} value={type}>
-              {type}
+          {[...new Set(houses.map((house) => house.status))].map((type, i) => (
+            <option key={i} value={type}>
+              {type
+                .split("_")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")}
             </option>
           ))}
         </select>
@@ -69,13 +77,15 @@ const OffersPageSettings = ({ houses, filters, setFilters }) => {
           onChange={(e) => setFilters({ ...filters, branding: e.target.value })}
         >
           <option value="all">All</option>
-          {[...new Set(houses.map((house) => house.branding[0].name))].map(
-            (type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            )
-          )}
+          {[
+            ...new Set(
+              houses.map((house) => house.branding[0] && house.branding[0].name)
+            ),
+          ].map((type, i) => (
+            <option key={i} value={type}>
+              {type}
+            </option>
+          ))}
         </select>
       </div>
     </div>
