@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OfferListing from "./OfferListing";
 import Image from "next/image";
 
 const OffersPageResults = ({ houses, filters, sliderValue }) => {
-  const [pages, setPages] = useState(9);
+  const initialPages = 9
+  const [pages, setPages] = useState(initialPages);
   const [disabled, setDisabled] = useState(false);
+  const [showButton, setShowButton] = useState(true);
   let newHouses = houses.filter(
     (house) =>
       (filters.houseType === "all" ||
@@ -17,14 +19,21 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
       house.list_price > sliderValue
   );
 
+    useEffect(() => {
+      setPages(initialPages)
+      if(newHouses.length <= pages) {
+        setShowButton(false)
+      } else {
+        setShowButton(true)
+      }
+    }, [newHouses.length])
+
   const handlePages = (pages) => {
-    if (pages >= houses.length - 2) {
-      setPages(houses.length);
-      setDisabled(true);
-    } else {
-      setPages(pages + 3);
-    }
+     setPages(pages + 3)
+    console.log('newHouses: ' + newHouses.length)
   };
+
+  console.log('pages: ' + pages)
 
   return (
     <div className="offerPageResultsContiner-max">
@@ -40,7 +49,7 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
           })
         )}
       </div>
-      {newHouses.length > 9 ? (
+      {showButton ? (
         <div className="showmore-btn-container">
           <button
             className={

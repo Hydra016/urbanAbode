@@ -44,11 +44,33 @@ export const fetchProperties = createAsyncThunk("property/houses", async () => {
   }
 });
 
+export const fetchSingleProperty = createAsyncThunk("property/house", async (id) => {
+  const options = {
+    method: 'GET',
+    url: 'https://realty-in-us.p.rapidapi.com/properties/v3/detail',
+    params: {
+      property_id: id
+    },
+    headers: {
+      'X-RapidAPI-Key': '959f787587mshb02a1696caa686cp156877jsn5bf17418c17b',
+      'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await axios.request(options);
+    return response.data
+  } catch (error) {
+    console.error(error);
+  }
+})
+
 const initialState = {
   price: 0,
   houses: [],
   isLoading: false,
   isPriceLoading: false,
+  house: {}
 };
 
 const propertySlice = createSlice({
@@ -73,6 +95,16 @@ const propertySlice = createSlice({
       state.houses = action.payload?.data.data.home_search.results;
     },
     [fetchProperties.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [fetchSingleProperty.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [fetchSingleProperty.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.house = action.payload?.data.home
+    },
+    [fetchSingleProperty.rejected]: (state) => {
       state.isLoading = false;
     },
   },

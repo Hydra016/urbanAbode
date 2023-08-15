@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Menu from "./Menu";
+import Menu from "../utils/Menu";
 import { Link as ScrollLink } from "react-scroll";
 import { useMobileDetection } from "@/hooks/useMobile";
 import { useRouter } from "next/router";
@@ -31,6 +31,30 @@ const Navbar = () => {
             >
               Estimate rent
             </ScrollLink>
+            <ScrollLink
+              className="navbar-link"
+              to="offers"
+              smooth={true}
+              duration={500}
+            >
+              Check affordability
+            </ScrollLink>
+            <ScrollLink
+              className="navbar-link"
+              to="offers"
+              smooth={true}
+              duration={500}
+            >
+              Our partners
+            </ScrollLink>
+            <ScrollLink
+              className="navbar-link"
+              to="offers"
+              smooth={true}
+              duration={500}
+            >
+              Calculate your mortgage
+            </ScrollLink>
           </div>
         ) : (
           <div className="navbar-items">
@@ -56,7 +80,7 @@ const Navbar = () => {
               smooth={true}
               duration={500}
             >
-              References
+              Our Partners
             </ScrollLink>
             <ScrollLink
               className="navbar-link"
@@ -65,14 +89,6 @@ const Navbar = () => {
               duration={500}
             >
               About us
-            </ScrollLink>
-            <ScrollLink
-              className="navbar-link"
-              to="footer"
-              smooth={true}
-              duration={500}
-            >
-              Our Partners
             </ScrollLink>
           </div>
         )}

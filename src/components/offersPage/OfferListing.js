@@ -1,14 +1,10 @@
+import Link from "next/link";
 import React from "react";
 
 const OfferListing = ({ house }) => {
   return (
-    <div className="listing offer-listing">
+    <Link href={`/offers/${house.property_id}`} className="offer-link listing offer-listing">
       <div className="listing-img-container">
-        <img
-          src={house.primary_photo ? house.primary_photo.href : null}
-          alt="listing"
-          className="offer-img"
-        />
         <img
           className="offer-img"
           src={
@@ -32,7 +28,7 @@ const OfferListing = ({ house }) => {
           <p className="offer-address">{house.location.address.line}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

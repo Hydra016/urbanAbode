@@ -44,7 +44,9 @@ const Header = () => {
   const [sliderValue, setSliderValue] = useState(1700);
 
   useEffect(() => {
-    dispatch(fetchProperties());
+    if (houses.length < 1) {
+      dispatch(fetchProperties());
+    }
   }, []);
 
   useEffect(() => {
