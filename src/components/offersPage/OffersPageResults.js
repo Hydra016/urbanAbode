@@ -16,8 +16,12 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
       (filters.status === "all" || house.status === filters.status) &&
       (filters.branding === "all" ||
         (house.branding[0] && house.branding[0].name === filters.branding)) &&
-      house.list_price > sliderValue
+      house.list_price > sliderValue &&
+      house.primary_photo !== null && house.primary_photo !== undefined
   );
+  
+
+    console.log(newHouses)
 
     useEffect(() => {
       setPages(initialPages)
@@ -30,10 +34,7 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
 
   const handlePages = (pages) => {
      setPages(pages + 3)
-    console.log('newHouses: ' + newHouses.length)
   };
-
-  console.log('pages: ' + pages)
 
   return (
     <div className="offerPageResultsContiner-max">

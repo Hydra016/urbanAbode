@@ -91,7 +91,10 @@ const ImgCarousel = ({ house }) => {
           })}
         </Swiper>
 
-        <div onClick={handleNext} className="indication-symbol indication-symbol-next">
+        <div
+          onClick={handleNext}
+          className="indication-symbol indication-symbol-next"
+        >
           <Image
             src="/next.png"
             alt="listing"
