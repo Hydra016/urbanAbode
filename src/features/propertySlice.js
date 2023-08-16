@@ -17,7 +17,7 @@ export const fetchProperties = createAsyncThunk("property/houses", async () => {
     url: 'https://realty-in-us.p.rapidapi.com/properties/v3/list',
     headers: {
       'content-type': 'application/json',
-      'X-RapidAPI-Key': '959f787587mshb02a1696caa686cp156877jsn5bf17418c17b',
+      'X-RapidAPI-Key': rapidAPIKey,
       'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
     },
     data: {
@@ -52,7 +52,7 @@ export const fetchSingleProperty = createAsyncThunk("property/house", async (id)
       property_id: id
     },
     headers: {
-      'X-RapidAPI-Key': '959f787587mshb02a1696caa686cp156877jsn5bf17418c17b',
+      'X-RapidAPI-Key': rapidAPIKey,
       'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com'
     }
   };

@@ -3,7 +3,7 @@ import OfferListing from "./OfferListing";
 import Image from "next/image";
 
 const OffersPageResults = ({ houses, filters, sliderValue }) => {
-  const initialPages = 9
+  const initialPages = 9;
   const [pages, setPages] = useState(initialPages);
   const [disabled, setDisabled] = useState(false);
   const [showButton, setShowButton] = useState(true);
@@ -17,23 +17,21 @@ const OffersPageResults = ({ houses, filters, sliderValue }) => {
       (filters.branding === "all" ||
         (house.branding[0] && house.branding[0].name === filters.branding)) &&
       house.list_price > sliderValue &&
-      house.primary_photo !== null && house.primary_photo !== undefined
+      house.primary_photo !== null &&
+      house.primary_photo !== undefined
   );
-  
 
-    console.log(newHouses)
-
-    useEffect(() => {
-      setPages(initialPages)
-      if(newHouses.length <= pages) {
-        setShowButton(false)
-      } else {
-        setShowButton(true)
-      }
-    }, [newHouses.length])
+  useEffect(() => {
+    setPages(initialPages);
+    if (newHouses.length <= pages) {
+      setShowButton(false);
+    } else {
+      setShowButton(true);
+    }
+  }, [newHouses.length]);
 
   const handlePages = (pages) => {
-     setPages(pages + 3)
+    setPages(pages + 3);
   };
 
   return (

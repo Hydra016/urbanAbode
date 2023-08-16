@@ -18,7 +18,7 @@ const Listing = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const { id } = router.query;
-
+  
   useEffect(() => {
     id && dispatch(fetchSingleProperty(id));
   }, [id]);
