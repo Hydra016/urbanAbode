@@ -1,17 +1,17 @@
-import React from 'react';
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+import React from "react";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
-const Location = () => {
+const Location = ({ location }) => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyDQP-YIAx765uNQuNdu2qOaVaOTl80iJOM'
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
 
-  const center = { lat: 56.951266, lng: 24.082570 };
+  const center = { lat: location.lat, lng: location.lon };
 
   if (!isLoaded) return <div>Loading</div>;
   return (
-    <GoogleMap zoom={16} center={center} mapContainerClassName='location'>
-      
+    <GoogleMap zoom={16} center={center} mapContainerClassName="location">
+      <MarkerF position={center} />
     </GoogleMap>
   );
 };

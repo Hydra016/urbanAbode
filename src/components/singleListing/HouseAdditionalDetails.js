@@ -26,8 +26,6 @@ const HouseAdditionalDetails = ({ house }) => {
     year_built: filteredProperties.year_built,
   };
 
-  console.log(selectedProperties)
-
   return (
     <div className="houseAdditionalDetails-container">
       <p className="text-primary heading-listing">Brief Characteristics</p>
@@ -45,7 +43,7 @@ const HouseAdditionalDetails = ({ house }) => {
         )}
       </div>
       <div>
-        {selectedProperties.beds &&  (
+        {selectedProperties.beds && (
           <div className="additionDetailBox">
             <Image
               src="/beds.png"

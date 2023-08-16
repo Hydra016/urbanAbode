@@ -11,6 +11,7 @@ import AdvertisorDetails from "@/components/singleListing/AdvertisorDetails";
 import HouseAdditionalDetails from "@/components/singleListing/HouseAdditionalDetails";
 import Lottie from "lottie-react";
 import animationData from "../../../public/splash.json";
+import Location from "@/components/singleListing/Location";
 
 const Listing = () => {
   let { house, isLoading } = useSelector((state) => state.propertyPrediction);
@@ -32,7 +33,7 @@ const Listing = () => {
           <div className="singleListing">
             <ImgCarousel house={house} />
             <HouseDetails house={house} />
-            {/* <Location house={house} /> */}
+            <Location location={house.location.address.coordinate} />
           </div>
           <div className="singleListDetails">
             <ContactForm />
