@@ -29,7 +29,8 @@
     "react-transition-group": "^4.4.5",
     "shuffle-seed": "^1.1.6",
     "swiper": "^9.2.0",
-    "typewriter-effect": "^2.20.1"
+    "typewriter-effect": "^2.20.1",
+    "words-to-numbers": "^1.5.1"
   },
   "devDependencies": {
     "css-loader": "^6.8.1",

@@ -1,94 +1,92 @@
 import React, { useState } from "react";
+import wordsToNumbers from "words-to-numbers";
+
+const convertLoanTypeToNumber = (loanType) => {
+  const firstWord = loanType.split("_")[0];
+  const numericValue = wordsToNumbers(firstWord);
+  return numericValue || null;
+};
 
 const MortgageForm = ({ mortgage }) => {
   const [mortgageValues, setMortgageValues] = useState({
-    home_insurance: '',
-    property_tax_rates: '',
-    down_payment: '',
-    price: '',
-    term: '',
-    hoa_fees: ''
+    home_insurance: 56,
+    property_tax_rates: mortgage && mortgage.average_rates[0].rate,
+    down_payment: mortgage && mortgage.estimate.down_payment,
+    price: mortgage.estimate.total_payment,
+    term: mortgage && convertLoanTypeToNumber(mortgage.average_rates[0].loan_type.loan_id),
+    hoa_fees: 0
   })
 
-  console.log(mortgageValues.term)
+  const getRateForLoanId = (loanId) => {
+    const selectedRate = mortgage.average_rates.find(rate => rate.loan_type.loan_id === loanId);
+    setMortgageValues({...mortgageValues, property_tax_rates: selectedRate.rate, term: convertLoanTypeToNumber(loanId)})
+  };
 
+  console.log(mortgageValues)
 
   return (
     <div className="mortgage-calculator-container animated-slide-down">
-      <div className="mortgage-calculator-inputBox">
-        <div className="label-container">
-          <label className="mortgage-calculator-label">Home insurance</label>
-        </div>
-        <input
-          placeholder="Home insurance"
-          className="mortgage-calculator-input"
-          type="number"
-        />
-      </div>
+
       <div className="mortgage-calculator-inputBox">
         <div className="label-container">
           <label className="mortgage-calculator-label">Property tax rate</label>
         </div>
         <input
-          value={mortgageValues.term}
+          value={mortgageValues.property_tax_rates}
           placeholder="Property tax rate"
           className="mortgage-calculator-input"
-          type="number"
+          type="text"
+          disabled
         />
       </div>
       <div className="mortgage-calculator-inputBox">
         <div className="label-container">
           <label className="mortgage-calculator-label">Down payment</label>
+          <span className="down_payment">min: {mortgage.estimate.down_payment}</span>
         </div>
         <input
           placeholder="Down payment"
           className="mortgage-calculator-input"
           type="number"
+          value={mortgageValues.down_payment}
+          onChange={(e) => setMortgageValues({ ...mortgageValues, down_payment: e.target.value })}
         />
       </div>
       <div className="mortgage-calculator-inputBox">
         <div className="label-container">
-          <label className="mortgage-calculator-label">Price</label>
+          <label className="mortgage-calculator-label">Interest Rate (constant)</label>
         </div>
         <input
-          placeholder="Price"
+          value={3.827}
           className="mortgage-calculator-input"
-          type="number"
+          type="text"
+          disabled
         />
       </div>
       <div className="mortgage-calculator-inputBox">
         <div className="label-container">
           <label className="mortgage-calculator-label">Term</label>
         </div>
-        {/* <input
-          placeholder="Term"
-          className="mortgage-calculator-input"
-          type="number"
-        /> */}
         <select
-        onChange={(e) => setMortgageValues({ ...mortgageValues, term: e.target.value })}
+        onChange={(e) => {
+          getRateForLoanId(e.target.value)
+        }}
         >
-        {[
-            ...new Set(
-              mortgage.average_rates.map((rate) => rate.loan_type.loan_id)
-            ),
-          ].map((type, i) => (
-            <option key={i} value={type}>
-              {type}
+        {mortgage.average_rates.map((rate, i) => {
+          return (
+            <option key={i} value={rate.loan_type.loan_id}>
+              {rate.loan_type.loan_id}
             </option>
-          ))}
+          )
+        })}
         </select>
       </div>
-      {/* <div className="mortgage-calculator-inputBox">
-        <div className="label-container">
-          <label className="mortgage-calculator-label">Hoa fees</label>
-        </div>
-        <input
-          placeholder="Hoa fees"
-          className="mortgage-calculator-input"
-          type="number"
-        />
-      </div> */}
+      <div className="mortgage-calculate-btn-container">
+      <button className="secondary-btn btn-contact-form">
+        Calculate
+      </button>
+      </div>
+      
     </div>
   );
 };

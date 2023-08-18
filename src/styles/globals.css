@@ -1441,3 +1441,14 @@ body {
   display: "flex";
   align-items: "center";
 }
+
+.down_payment {
+  display: block;
+  font-size: 10px;
+}
+
+.mortgage-calculate-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
