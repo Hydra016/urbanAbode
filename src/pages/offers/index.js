@@ -7,6 +7,7 @@ import { fetchProperties } from "@/features/propertySlice";
 import { useDispatch, useSelector } from "react-redux";
 import animationData from "../../../public/splash.json";
 import Lottie from "lottie-react";
+import { resetMortgage } from "@/features/propertySlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,10 @@ const Header = () => {
   const handleSliderChange = (event) => {
     setSliderValue(event.target.value);
   };
+
+  useEffect(() => {
+    dispatch(resetMortgage())
+  }, [])
 
   return (
     <div id="home">

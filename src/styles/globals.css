@@ -1452,3 +1452,33 @@ body {
   justify-content: center;
   margin-top: 2rem;
 }
+
+.mortgageResultsContainer {
+  margin-top: 1rem;
+}
+
+.mortgageResult {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mortgageResult--heading {
+  font-family: 'Merriweather';
+  font-weight: 600;
+}
+
+.mortgageResult--text {
+  font-size: 14px;
+}
+
+.monthly_payment-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.mortgageResult--text-bold {
+  font-weight: 600;
+  text-transform: capitalize;
+}
