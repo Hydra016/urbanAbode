@@ -94,7 +94,7 @@ const MortgageForm = ({ mortgage }) => {
           <label className="mortgage-calculator-label">Term</label>
         </div>
         <select
-        className="mortgage-calculator-input"
+          className="mortgage-calculator-input"
           onChange={(e) => {
             getRateForLoanId(e.target.value);
           }}
