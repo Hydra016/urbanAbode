@@ -61,8 +61,8 @@ const Header = () => {
   };
 
   useEffect(() => {
-    dispatch(resetMortgage())
-  }, [])
+    dispatch(resetMortgage());
+  }, []);
 
   return (
     <div id="home">

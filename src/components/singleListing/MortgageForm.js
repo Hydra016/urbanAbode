@@ -42,9 +42,6 @@ const MortgageForm = ({ mortgage }) => {
     borderColor: "red",
   };
 
-  console.log(mortgageDetails);
-  console.log(mortgageLoading);
-
   return (
     <div className="mortgage-calculator-container animated-slide-down">
       <div className="mortgage-calculator-inputBox">
@@ -97,6 +94,7 @@ const MortgageForm = ({ mortgage }) => {
           <label className="mortgage-calculator-label">Term</label>
         </div>
         <select
+        className="mortgage-calculator-input"
           onChange={(e) => {
             getRateForLoanId(e.target.value);
           }}
