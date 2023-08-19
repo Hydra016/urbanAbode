@@ -5,7 +5,7 @@ import MortgageForm from "./MortgageForm";
 
 const HouseDetails = ({ house }) => {
   const mobile = useMobileDetection();
-  const [ openMortgageMenu, setOpenMortgageMenu ] = useState(false);
+  const [openMortgageMenu, setOpenMortgageMenu] = useState(false);
 
   const houseTypeImages = {
     condos: "/condo.png",
@@ -61,29 +61,31 @@ const HouseDetails = ({ house }) => {
         </div>
       </div>
 
-      <div className="mortgageContainer">
-        <div className="mortgageShowContainer">
-        <div>
-          <span>Motgage since:</span>
-          <p>{house.mortgage.estimate.total_payment}$/ month</p>
-        </div>
-        <button onClick={() => setOpenMortgageMenu(!openMortgageMenu)} className="mortgage-btn primary-btn contact-btn showmore-btn">
-         <p className="mortgage-btn-text">Get a mortgage</p>
-         <div className={openMortgageMenu ? `mortgage-icon` : 'mortage-icon-back'}>
-         <Image
-            src="/next.png"
-            alt="listing"
-            width={15}
-            height={15}
-          />
-         </div>
-        </button>
-        </div>
-        
-        {openMortgageMenu ? <MortgageForm mortgage={house.mortgage} /> :  null}
-      </div>
+      {house.status === "for_sale" && (
+        <div className="mortgageContainer">
+          <div className="mortgageShowContainer">
+            <div>
+              <span>Motgage since:</span>
+              <p>{house.mortgage.estimate.total_payment}$/ month</p>
+            </div>
+            <button
+              onClick={() => setOpenMortgageMenu(!openMortgageMenu)}
+              className="mortgage-btn primary-btn contact-btn showmore-btn"
+            >
+              <p className="mortgage-btn-text">Get a mortgage</p>
+              <div
+                className={
+                  openMortgageMenu ? `mortgage-icon` : "mortage-icon-back"
+                }
+              >
+                <Image src="/next.png" alt="listing" width={15} height={15} />
+              </div>
+            </button>
+          </div>
 
-      
+          {openMortgageMenu ? <MortgageForm mortgage={house.mortgage} /> : null}
+        </div>
+      )}
 
       <div className="details-description">
         <p>
