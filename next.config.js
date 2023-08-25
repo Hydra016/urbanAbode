@@ -4,7 +4,7 @@ const nextConfig = {
     houses: "houses.csv",
   },
   images: {
-    domains: ["p.rdcpix.com"], 
+    domains: ["p.rdcpix.com", "ap.rdcpix.com"], 
   },
 };
 

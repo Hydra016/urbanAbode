@@ -60,14 +60,8 @@ const OffersPageSettings = ({ houses, filters, setFilters }) => {
           id="status"
           onChange={(e) => setFilters({ ...filters, status: e.target.value })}
         >
-          {[...new Set(houses.map((house) => house.status))].map((type, i) => (
-            <option key={i} value={type}>
-              {type
-                .split("_")
-                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")}
-            </option>
-          ))}
+          <option value="for_rent">For rent</option>
+          <option value="for_sale">For sale</option>
         </select>
 
         <select

@@ -23,38 +23,7 @@ const Navbar = () => {
         </Link>
         {router.pathname === "/offers" ? (
           <div className="navbar-items">
-            <ScrollLink
-              className="navbar-link"
-              to="offers"
-              smooth={true}
-              duration={500}
-            >
-              Estimate rent
-            </ScrollLink>
-            <ScrollLink
-              className="navbar-link"
-              to="offers"
-              smooth={true}
-              duration={500}
-            >
-              Check affordability
-            </ScrollLink>
-            <ScrollLink
-              className="navbar-link"
-              to="offers"
-              smooth={true}
-              duration={500}
-            >
-              Our partners
-            </ScrollLink>
-            <ScrollLink
-              className="navbar-link"
-              to="offers"
-              smooth={true}
-              duration={500}
-            >
-              Calculate your mortgage
-            </ScrollLink>
+            
           </div>
         ) : (
           <div className="navbar-items">
